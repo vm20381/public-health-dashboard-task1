@@ -51,3 +51,20 @@ To set up the project locally, follow these steps:
     ```bash
     pip install -r requirements.txt
     ```
+
+## Usage
+
+1. **Run app**:
+    ```bash
+    streamlit run src/app.py
+    ```
+2. **Run tests:**:
+    ```bash
+    pytest -q
+    ```
+
+## Data
+
+**Dataset**
+The project uses the "Novel Corona Virus 2019 Dataset" from Kaggle, which contains comprehensive data on COVID-19 cases worldwide. Avaliable at the link below:
+https://www.kaggle.com/datasets/sudalairajkumar/novel-corona-virus-2019-dataset
