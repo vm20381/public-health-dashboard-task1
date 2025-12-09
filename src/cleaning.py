@@ -51,8 +51,9 @@ def convert_types(df: pd.DataFrame) -> pd.DataFrame:
     out = df.copy()
 
     # Dates: handle mixed formats (01/22/2020) and (1/23/20 17:00)
-    out["observation_date"] = pd.to_datetime(out["observation_date"], errors="coerce")
-    out["last_update"] = pd.to_datetime(out["last_update"], errors="coerce")
+    # format='mixed' allows pandas to infer different formats row-by-row
+    out["observation_date"] = pd.to_datetime(out["observation_date"], errors="coerce", format="mixed")
+    out["last_update"] = pd.to_datetime(out["last_update"], errors="coerce", format="mixed")
 
     # Counts: numeric -> nullable integer
     for col in ["confirmed", "deaths", "recovered"]:

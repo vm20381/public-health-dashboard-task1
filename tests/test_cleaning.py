@@ -72,9 +72,10 @@ def test_convert_types_converts_counts_to_nullable_int():
     df = standardise_columns(_sample_raw_df())
     out = convert_types(df)
 
+    expected_values = {"confirmed": 1, "deaths": 0, "recovered": 0}
     for col in ["confirmed", "deaths", "recovered"]:
         assert str(out[col].dtype) == "Int64"
-        assert out[col].iloc[0] == 1
+        assert out[col].iloc[0] == expected_values[col]
 
 def test_handle_missing_leaves_province_state_as_none():
     df = standardise_columns(_sample_raw_df())
