@@ -3,3 +3,9 @@ numpy
 matplotlib
 seaborn
 pytest
+sqlalchemy
+streamlit
+python-dateutil
+ipykernel
+plotly
+nbformat
