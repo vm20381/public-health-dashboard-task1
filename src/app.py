@@ -38,7 +38,6 @@ def main():
     st.set_page_config(page_title="Public Health Dashboard", layout="wide")
     
     st.title("Public Health Dashboard")
-    st.write("Welcome to the COVID-19 Data Insights Dashboard.")
     
     # Load data
     df = get_data()
@@ -47,13 +46,27 @@ def main():
         st.warning("No data available. Please check the database.")
         return
 
+    # Calculate dataset stats
+    min_date = df["observation_date"].min().date()
+    max_date = df["observation_date"].max().date()
+    n_countries = df["country_region"].nunique()
+
+    st.markdown(f"""
+    Welcome to the **COVID-19 Data Insights Dashboard**. 
+    This tool visualizes the spread of the virus using data aggregated from various sources (including WHO and Johns Hopkins University).
+
+    ### Dataset Overview
+    - **Time Range:** {min_date} to {max_date}
+    - **Geographic Coverage:** {n_countries} Countries/Regions
+    - **Total Records:** {len(df):,}
+    
+    Use the **sidebar filters** on the left to narrow down the analysis by date or country.
+    """)
+
     # Sidebar Filters
     st.sidebar.header("Filters")
     
     # Date Range Filter
-    min_date = df["observation_date"].min().date()
-    max_date = df["observation_date"].max().date()
-    
     start_date = st.sidebar.date_input("Start Date", min_date, min_value=min_date, max_value=max_date)
     end_date = st.sidebar.date_input("End Date", max_date, min_value=min_date, max_value=max_date)
     
