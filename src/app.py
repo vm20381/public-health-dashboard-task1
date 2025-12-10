@@ -53,7 +53,7 @@ def main():
 
     st.markdown(f"""
     Welcome to the **COVID-19 Data Insights Dashboard**. 
-    This tool visualizes the spread of the virus using data aggregated from various sources (including WHO and Johns Hopkins University).
+    This tool visualises the spread of the virus using data aggregated from various sources (including WHO and Johns Hopkins University).
 
     ### Dataset Overview
     - **Time Range:** {min_date} to {max_date}
