@@ -11,4 +11,8 @@ __pycache__/
 # Jupyter
 .ipynb_checkpoints/
 
+# Documentation
 code_documentation.md
+
+# Database
+covid_data.db

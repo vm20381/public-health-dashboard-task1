@@ -51,6 +51,10 @@ To set up the project locally, follow these steps:
     ```bash
     pip install -r requirements.txt
     ```
+5.  **Initialise the Database**:
+    ```bash
+    python .\init_db.py
+    ```
 
 ## Usage
 
@@ -62,6 +66,7 @@ To set up the project locally, follow these steps:
     ```bash
     pytest -q
     ```
+    *Note: You may see `DeprecationWarning` messages related to the default datetime adapter in `sqlite3`. These are due to internal changes in Python 3.12+ and do not affect the functionality of the application or the validity of the tests.*
 
 ## Data
 
